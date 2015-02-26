@@ -8,11 +8,21 @@
     'Build in method to start getting the game setup
     Public Sub startGame()
         deck.BuildDeck()
+        dealCardToPlayer()
+        dealCardToPlayer()
+        dealCardToDealer()
+        dealCardToDealer()
     End Sub
 
     Public Sub dealCardToPlayer()
-        'And I broke it and don't know how to fix it....
-        playerHand.addCard(deck.AryCards(0))
+        'Add 2 cards to the player and dealer hands to work with.
+        playerHand.addCard(deck.DealCard)
+
+    End Sub
+
+    Public Sub dealCardToDealer()
+        'Deal 2 cards to the dealer's hand to work with
+        dealerHand.addCard(deck.DealCard)
     End Sub
 
 End Class

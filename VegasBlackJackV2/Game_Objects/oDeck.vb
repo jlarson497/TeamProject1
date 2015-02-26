@@ -1,6 +1,6 @@
 ﻿' Deck object to build and array list of what goes into a "deck"
 Public Class oDeck
-    Public AryCards As New ArrayList
+    Private AryCards As New ArrayList
 
     Public Sub BuildDeck()
         'create variables to hold info / New function used to set memory aside for the object created.
@@ -22,5 +22,22 @@ Public Class oDeck
         Next
 
     End Sub
+    Public Function DealCard() As oCard
+        'variables to handle storing information
+        Dim ODeltCard As oCard
+        Dim intRandomCard As Integer
+
+        'Create a random number(card) generator. // intRandomCard is = a random number between 0(1) 
+        'and the rest of the cards in the list -1.
+        Dim Generator As System.Random = New System.Random()
+        intRandomCard = Generator.Next(0, AryCards.Count - 1)
+
+        'Pull a card from the deck then remove it from the arraylist to insure we don't have duplicate.
+        ODeltCard = AryCards.Item(intRandomCard)
+        AryCards.Remove(ODeltCard)
+
+        'Return the pulled card to wherever this will be used.
+        Return ODeltCard
+    End Function
 
 End Class
