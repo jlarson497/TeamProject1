@@ -17,7 +17,9 @@
             ctrHandValue = ctrHandValue + CType(newHand.Item(ctrIndexCounter), oCard).Value
 
             
-            If ctrHandValue > 21 Then
+            If ctrHandValue = 21 Then
+                MessageBox.Show("Winner Winner Chicken Dinner")
+            ElseIf ctrHandValue > 22 Then
                 MessageBox.Show("You have gone bust")
             End If
         Next
@@ -38,6 +40,14 @@
             strCardText = newHand(intDefaultCounter).ToString
             lstCards.Items.Add(strCardText)
         Next
+    End Sub
+
+    Public Sub clearPlayerHand()
+        newHand.Clear()
+    End Sub
+
+    Public Sub clearDealerHand()
+        newHand.Clear()
     End Sub
 
 End Class

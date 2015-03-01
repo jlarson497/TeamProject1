@@ -16,7 +16,7 @@
         </Label>
         <Button x:Name="btnStart" Content="Start Game" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="177,0,0,0" Height="43" FontWeight="Bold" FontStyle="Italic" FontSize="16"/>
         <Label x:Name="lblPlayerTotal" Content="Player Total" HorizontalAlignment="Left" Margin="49,206,0,0" VerticalAlignment="Top" Width="114" Height="48"/>
-        <Label x:Name="lblDealerTotal" Content="Dealer Total" HorizontalAlignment="Left" Margin="371,206,0,0" VerticalAlignment="Top" Height="48" Width="99"/>
+        <Label x:Name="lblDealerTotal" Content="Dealer Total" HorizontalAlignment="Left" Margin="371,206,0,0" VerticalAlignment="Top" Height="48" Width="112"/>
         <ListBox x:Name="lstPlayerCards" HorizontalAlignment="Left" Height="100" Margin="40,101,0,0" VerticalAlignment="Top" Width="100"/>
         <ListBox x:Name="lstDealerCards" HorizontalAlignment="Left" Height="100" Margin="359,101,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btnHit" Content="Hit" HorizontalAlignment="Left" Margin="177,247,0,0" VerticalAlignment="Top" Width="75"/>
