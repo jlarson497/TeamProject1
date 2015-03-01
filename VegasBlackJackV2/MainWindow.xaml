@@ -19,5 +19,7 @@
         <Label x:Name="lblDealerTotal" Content="Dealer Total" HorizontalAlignment="Left" Margin="371,206,0,0" VerticalAlignment="Top" Height="48" Width="99"/>
         <ListBox x:Name="lstPlayerCards" HorizontalAlignment="Left" Height="100" Margin="40,101,0,0" VerticalAlignment="Top" Width="100"/>
         <ListBox x:Name="lstDealerCards" HorizontalAlignment="Left" Height="100" Margin="359,101,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btnHit" Content="Hit" HorizontalAlignment="Left" Margin="177,247,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnStay" Content="Stay" HorizontalAlignment="Left" Margin="267,247,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

@@ -8,7 +8,7 @@
 
     End Sub
 
-    Private Sub btnStart_Click(sender As Object, e As RoutedEventArgs) Handles btnStart.Click
+    Public Sub startGame()
         'This will get the game on the going, linking into the oDealingTable object.
         liveTable.startGame()
 
@@ -24,8 +24,25 @@
 
         'Display the player code information 
         lblPlayerTotal.Content = "Player Total Is: " & liveTable.playerHand.CountTotal()
+        lblDealerTotal.Content = "Dealer Total Is: " & liveTable.dealerHand.CountTotal()
+    End Sub
+
+    Public Sub playerHit()
+        'This will deal another card to the player hand, update the count and repopulate the lstbox for the players cards
+        liveTable.dealCardToPlayer()
+        lblPlayerTotal.Content = "Player Total Is: " & liveTable.playerHand.CountTotal()
+        liveTable.playerHand.PopulateListBox(lstPlayerCards)
 
 
 
+    End Sub
+
+    Private Sub btnStart_Click(sender As Object, e As RoutedEventArgs) Handles btnStart.Click
+        startGame()
+
+    End Sub
+
+    Private Sub btnHit_Click(sender As Object, e As RoutedEventArgs) Handles btnHit.Click
+        playerHit()
     End Sub
 End Class

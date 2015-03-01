@@ -15,10 +15,29 @@
         'Counter to count up the value in the hand by checki...
         For ctrIndexCounter = 0 To newHand.Count - 1
             ctrHandValue = ctrHandValue + CType(newHand.Item(ctrIndexCounter), oCard).Value
+
+            
+            If ctrHandValue > 21 Then
+                MessageBox.Show("You have gone bust")
+            End If
         Next
 
         Return ctrHandValue
 
     End Function
+
+    Public Sub PopulateListBox(ByRef lstCards As ListBox)
+        'create a counter to work through the player and dealer hands and add them to the listboxes that are being displayed.
+        'Create a listbox which displays other listbox information. We should be able to see the player and dealer cards in these boxes.
+        Dim strCardText As String
+        Dim intDefaultCounter As Integer
+        'Refresh or otherwise clear the current listboxes - don't want to repeat already stated info.
+        lstCards.Items.Clear()
+        'Show the card information in the hands.
+        For intDefaultCounter = 0 To newHand.Count - 1
+            strCardText = newHand(intDefaultCounter).ToString
+            lstCards.Items.Add(strCardText)
+        Next
+    End Sub
 
 End Class
