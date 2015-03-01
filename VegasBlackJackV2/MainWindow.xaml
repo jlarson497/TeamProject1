@@ -2,13 +2,22 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="246*"/>
-            <ColumnDefinition Width="271*"/>
-        </Grid.ColumnDefinitions>
-        <Button Content="Hit" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.772,-2.984" Click="Button_Click"/>
-        <Button Content="Stand" HorizontalAlignment="Left" Margin="30,84,0,0" VerticalAlignment="Top" Width="75"/>
-
+    <Grid HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517">
+        <Image HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517" Source="Images/CardTableFormat.png" Stretch="Fill"/>
+        <Label x:Name="Player" FontWeight="Bold" Content="Player" Margin="49,51,365,233" Width="103" FontSize="16" Height="35" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label.Effect>
+                <DropShadowEffect Color="#FFCFADAD" Direction="344" Opacity="0.965" ShadowDepth="7"/>
+            </Label.Effect>
+        </Label>
+        <Label x:Name="Dealer" FontWeight="Bold" Content="Dealer" Margin="380,51,34,233" Width="103" FontSize="16" Height="35" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label.Effect>
+                <DropShadowEffect Color="#FFCFADAD" Direction="344" Opacity="0.965" ShadowDepth="7"/>
+            </Label.Effect>
+        </Label>
+        <Button x:Name="btnStart" Content="Start Game" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="177,0,0,0" Height="43" FontWeight="Bold" FontStyle="Italic" FontSize="16"/>
+        <Label x:Name="lblPlayerTotal" Content="Player Total" HorizontalAlignment="Left" Margin="49,206,0,0" VerticalAlignment="Top" Width="114" Height="48"/>
+        <Label x:Name="lblDealerTotal" Content="Dealer Total" HorizontalAlignment="Left" Margin="371,206,0,0" VerticalAlignment="Top" Height="48" Width="99"/>
+        <ListBox x:Name="lstPlayerCards" HorizontalAlignment="Left" Height="100" Margin="40,101,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListBox x:Name="lstDealerCards" HorizontalAlignment="Left" Height="100" Margin="359,101,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>

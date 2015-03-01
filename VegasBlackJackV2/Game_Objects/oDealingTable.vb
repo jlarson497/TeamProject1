@@ -15,13 +15,13 @@
     End Sub
 
     Public Sub dealCardToPlayer()
-        'Add 2 cards to the player and dealer hands to work with.
+        'Add cards to the player and dealer hands to work with.
         playerHand.addCard(deck.DealCard)
 
     End Sub
 
     Public Sub dealCardToDealer()
-        'Deal 2 cards to the dealer's hand to work with
+        'Deal cards to the dealer's hand to work with
         dealerHand.addCard(deck.DealCard)
     End Sub
 

@@ -1,18 +1,31 @@
 ﻿Class MainWindow
     Private liveTable As New oDealingTable
-
-
     Public Sub New()
 
         ' This call is required by the designer.
         InitializeComponent()
 
-        ' Add any initialization after the InitializeComponent() call.
-        liveTable.startGame()
+
     End Sub
 
-    Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
-        'Functions that happen when the "Hit" option is clicked.  first set variables
-        liveTable.dealCardToPlayer()
+    Private Sub btnStart_Click(sender As Object, e As RoutedEventArgs) Handles btnStart.Click
+        'This will get the game on the going, linking into the oDealingTable object.
+        liveTable.startGame()
+
+        'create a counter to work through the player and dealer hands and add them to the listboxes that are being displayed.
+        'Create  a listbox which displays other listbox information.  We should be able to see the player and dealer cards in these boxes.
+        Dim strCardText As String
+        Dim intDefaultCounter As Integer
+
+        For intDefaultCounter = 0 To liveTable.playerHand.newHand.Count - 1
+            strCardText = liveTable.playerHand.newHand(intDefaultCounter).ToString
+            lstPlayerCards.Items.Add(strCardText)
+        Next
+
+        'Display the player code information 
+        lblPlayerTotal.Content = "Player Total Is: " & liveTable.playerHand.CountTotal()
+
+
+
     End Sub
 End Class
