@@ -25,6 +25,8 @@
         dealerHand.addCard(deck.DealCard)
     End Sub
 
+    Public Sub winLoss()
+
 
 
 End Class

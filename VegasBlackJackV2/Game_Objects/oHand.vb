@@ -16,17 +16,12 @@
         For ctrIndexCounter = 0 To newHand.Count - 1
             ctrHandValue = ctrHandValue + CType(newHand.Item(ctrIndexCounter), oCard).Value
 
-            
-            If ctrHandValue = 21 Then
-                MessageBox.Show("Winner Winner Chicken Dinner")
-            ElseIf ctrHandValue > 22 Then
-                MessageBox.Show("You have gone bust")
-            End If
         Next
 
         Return ctrHandValue
 
     End Function
+
 
     Public Sub PopulateListBox(ByRef lstCards As ListBox)
         'create a counter to work through the player and dealer hands and add them to the listboxes that are being displayed.

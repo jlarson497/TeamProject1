@@ -35,6 +35,7 @@
         'Display the player code information 
         lblPlayerTotal.Content = "Player Total Is: " & liveTable.playerHand.CountTotal()
         lblDealerTotal.Content = "Dealer Total Is: " & liveTable.dealerHand.CountTotal()
+
     End Sub
 
     Public Sub playerHit()
@@ -42,6 +43,7 @@
         liveTable.dealCardToPlayer()
         lblPlayerTotal.Content = "Player Total Is: " & liveTable.playerHand.CountTotal()
         liveTable.playerHand.PopulateListBox(lstPlayerCards)
+
 
     End Sub
 
