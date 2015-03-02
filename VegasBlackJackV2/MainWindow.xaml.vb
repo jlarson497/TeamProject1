@@ -35,7 +35,7 @@
         'Display the player code information 
         lblPlayerTotal.Content = "Player Total Is: " & liveTable.playerHand.CountTotal()
         lblDealerTotal.Content = "Dealer Total Is: " & liveTable.dealerHand.CountTotal()
-
+        liveTable.checkPlayerCards()
     End Sub
 
     Public Sub playerHit()
@@ -43,7 +43,8 @@
         liveTable.dealCardToPlayer()
         lblPlayerTotal.Content = "Player Total Is: " & liveTable.playerHand.CountTotal()
         liveTable.playerHand.PopulateListBox(lstPlayerCards)
-
+        liveTable.checkPlayerCards()
+        liveTable.checkDealerCards()
 
     End Sub
 
@@ -58,7 +59,11 @@
         Do While liveTable.dealerHand.CountTotal() < 17
             dealerHit()
         Loop
-        compareHands()
+        liveTable.checkDealerCards()
+        If liveTable.dealerHand.CountTotal() < 21 Then
+            compareHands()
+        End If
+
     End Sub
 
     Public Sub compareHands()

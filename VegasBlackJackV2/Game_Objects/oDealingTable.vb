@@ -25,7 +25,21 @@
         dealerHand.addCard(deck.DealCard)
     End Sub
 
-    Public Sub winLoss()
+    Public Sub checkPlayerCards()
+        If playerHand.CountTotal = 21 Then
+            MessageBox.Show("21! You win!")
+        ElseIf playerHand.CountTotal >= 22 Then
+            MessageBox.Show("You have gone bust. Dealer wins!")
+        End If
+    End Sub
+
+    Public Sub checkDealerCards()
+        If dealerHand.CountTotal = 21 Then
+            MessageBox.Show("The dealer has gotten 21.  You lose!")
+        ElseIf dealerHand.CountTotal >= 22 Then
+            MessageBox.Show("The dealer has gone bust.  You win!")
+        End If
+    End Sub
 
 
 
