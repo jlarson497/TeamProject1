@@ -33,20 +33,31 @@
         dealerHand.ResetAces()
     End Sub
 
-    Public Sub checkPlayerCards()
+    Public Function checkPlayerCards()
         If playerHand.CountTotal = cntWinValue Then
             MessageBox.Show("21! You win!")
+            Return 1
         ElseIf playerHand.CountTotal > cntWinValue Then
             MessageBox.Show("You have gone bust. Dealer wins!")
+            Return 1
+        Else
+            Return 0
         End If
-    End Sub
 
-    Public Sub checkDealerCards()
+
+    End Function
+
+    Public Function checkDealerCards()
         If dealerHand.CountTotal = cntWinValue Then
             MessageBox.Show("The dealer has gotten 21.  You lose!")
+            Return 1
         ElseIf dealerHand.CountTotal > cntWinValue Then
             MessageBox.Show("The dealer has gone bust.  You win!")
+            Return 1
+        Else
+            Return 0
         End If
-    End Sub
+
+    End Function
 
 End Class

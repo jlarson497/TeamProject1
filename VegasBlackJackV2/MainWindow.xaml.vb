@@ -14,6 +14,8 @@
 
     Public Sub startGame()
         'This will get the game on the going, linking into the oDealingTable object.
+        btnHit.IsEnabled = True
+        btnStay.IsEnabled = True
         liveTable.playerHand.clearPlayerHand()
         liveTable.dealerHand.clearDealerHand()
         lstDealerCards.Items.Clear()
@@ -39,7 +41,11 @@
         'Display the player code information 
         lblPlayerTotal.Content = "Player Total Is: " & liveTable.playerHand.CountTotal()
         lblDealerTotal.Content = "Dealer Total Is: " & liveTable.dealerHand.CountTotal()
-        liveTable.checkPlayerCards()
+        If liveTable.checkPlayerCards() = 1 Then
+            btnHit.IsEnabled = False
+
+        End If
+
     End Sub
 
     Public Sub playerHit()
@@ -47,8 +53,15 @@
         liveTable.dealCardToPlayer()
         lblPlayerTotal.Content = "Player Total Is: " & liveTable.playerHand.CountTotal()
         liveTable.playerHand.PopulateListBox(lstPlayerCards)
-        liveTable.checkPlayerCards()
-        liveTable.checkDealerCards()
+        If liveTable.checkPlayerCards() = 1 Then
+            btnHit.IsEnabled = False
+            btnStay.IsEnabled = False
+        End If
+
+        If liveTable.checkDealerCards() = 1 Then
+            btnHit.IsEnabled = False
+            btnStay.IsEnabled = False
+        End If
 
     End Sub
 
@@ -66,15 +79,19 @@
         liveTable.checkDealerCards()
         If liveTable.dealerHand.CountTotal() < cntWinValue Then
             compareHands()
+            btnHit.IsEnabled = False
+            btnStay.IsEnabled = False
         End If
 
     End Sub
 
     Public Sub compareHands()
-        If liveTable.dealerHand.CountTotal() > liveTable.playerHand.CountTotal() Then
+        If liveTable.dealerHand.CountTotal() >= liveTable.playerHand.CountTotal() Then
             MessageBox.Show("The dealer has won")
+
         Else
             MessageBox.Show("You have beaten the dealer!")
+
         End If
     End Sub
 
