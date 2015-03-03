@@ -18,11 +18,16 @@
         'Add cards to the player and dealer hands to work with.
         playerHand.addCard(deck.DealCard)
 
+        'Check the values and insure that all Aces are the proper values
+        playerHand.ResetAces()
     End Sub
 
     Public Sub dealCardToDealer()
         'Deal cards to the dealer's hand to work with
         dealerHand.addCard(deck.DealCard)
+
+        'Check the values and insure that all Aces are the proper values
+        dealerHand.ResetAces()
     End Sub
 
     Public Sub checkPlayerCards()
@@ -40,7 +45,5 @@
             MessageBox.Show("The dealer has gone bust.  You win!")
         End If
     End Sub
-
-
 
 End Class
