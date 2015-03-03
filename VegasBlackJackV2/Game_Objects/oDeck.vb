@@ -2,6 +2,7 @@
 Public Class oDeck
     Private AryCards As New ArrayList
 
+
     Public Sub BuildDeck()
         'create variables to hold info / New function used to set memory aside for the object created.
         'without the New function information won't be saved on the item that is created.

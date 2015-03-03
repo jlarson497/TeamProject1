@@ -20,7 +20,24 @@ Public Class oCard
     End Function
 
     Public Overrides Function ToString() As String
-        Return (CardFace.ToString & " of " & CardSuit.ToString)
+        Dim value As String = ""
+
+        'This is to display the card value and the Unicode picture of the cards.  Below if you want to use the word instead of the value...
+        'simply remove the "'" from the line.
+        'value = CardFace.ToString
+        value = CardFace
+
+        If CardFace = CardFaceEnum.Ace Then value = "A"
+        If CardFace = CardFaceEnum.King Then value = "K"
+        If CardFace = CardFaceEnum.Queen Then value = "Q"
+        If CardFace = CardFaceEnum.Jack Then value = "J"
+
+        If CardSuit = SuitEnum.Spades Then value += " of " & ChrW(9824)
+        If CardSuit = SuitEnum.Diamonds Then value += " of " & ChrW(9830)
+        If CardSuit = SuitEnum.Clubs Then value += " of " & ChrW(9827)
+        If CardSuit = SuitEnum.Hearts Then value += " of " & ChrW(9829)
+
+        Return value
     End Function
 
 End Class

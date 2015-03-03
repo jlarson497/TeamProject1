@@ -4,6 +4,9 @@
     Public deck As New oDeck
     Public playerHand As New oHand
     Public dealerHand As New oHand
+    'Set constants to be used in all of the coding.
+    Public Const cntWinValue As Integer = 21
+    Public Const cntDealerHold As Integer = 17
 
     'Build in method to start getting the game setup
     Public Sub startGame()
@@ -31,17 +34,17 @@
     End Sub
 
     Public Sub checkPlayerCards()
-        If playerHand.CountTotal = 21 Then
+        If playerHand.CountTotal = cntWinValue Then
             MessageBox.Show("21! You win!")
-        ElseIf playerHand.CountTotal >= 22 Then
+        ElseIf playerHand.CountTotal > cntWinValue Then
             MessageBox.Show("You have gone bust. Dealer wins!")
         End If
     End Sub
 
     Public Sub checkDealerCards()
-        If dealerHand.CountTotal = 21 Then
+        If dealerHand.CountTotal = cntWinValue Then
             MessageBox.Show("The dealer has gotten 21.  You lose!")
-        ElseIf dealerHand.CountTotal >= 22 Then
+        ElseIf dealerHand.CountTotal > cntWinValue Then
             MessageBox.Show("The dealer has gone bust.  You win!")
         End If
     End Sub

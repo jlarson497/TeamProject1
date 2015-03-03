@@ -1,6 +1,9 @@
 ﻿Public Class oHand
     'Create an arraylist to show and hold information of what goes into a hand.
     Public newHand As New ArrayList
+    'Set constants to be used in all of the coding.
+    Public Const cntWinValue As Integer = 21
+    Public Const cntDealerHold As Integer = 17
 
     'Created a method to put a card into the hand (both player and dealer) 
     Public Sub addCard(ByVal Card As oCard)
@@ -19,7 +22,7 @@
         Next
 
         'Using the code below adjust the Ace to low from high // this would make the statement False.
-        If ctrHandValue > 21 And IfAnyAceHigh() = True Then
+        If ctrHandValue > cntWinValue And IfAnyAceHigh() = True Then
             'Flip the first high ace to low (1 from 11) // The following code is shorthand for using "Call" which is an optional command.
             FlipAce()
 
@@ -95,6 +98,7 @@
         For intDefaultCounter = 0 To newHand.Count - 1
             strCardText = newHand(intDefaultCounter).ToString
             lstCards.Items.Add(strCardText)
+
         Next
     End Sub
 

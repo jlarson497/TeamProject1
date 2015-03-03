@@ -1,5 +1,9 @@
 ﻿Class MainWindow
     Private liveTable As New oDealingTable
+    'Set constants to be used in all of the coding.
+    Public Const cntWinValue As Integer = 21
+    Public Const cntDealerHold As Integer = 17
+
     Public Sub New()
 
         ' This call is required by the designer.
@@ -56,11 +60,11 @@
     End Sub
 
     Public Sub dealerPlay()
-        Do While liveTable.dealerHand.CountTotal() < 17
+        Do While liveTable.dealerHand.CountTotal() < cntDealerHold
             dealerHit()
         Loop
         liveTable.checkDealerCards()
-        If liveTable.dealerHand.CountTotal() < 21 Then
+        If liveTable.dealerHand.CountTotal() < cntWinValue Then
             compareHands()
         End If
 
@@ -85,5 +89,12 @@
 
     Private Sub btnStay_Click(sender As Object, e As RoutedEventArgs) Handles btnStay.Click
         dealerPlay()
+    End Sub
+
+    Private Sub btnHelp_Click(sender As Object, e As RoutedEventArgs) Handles btnHelp.Click
+        MessageBox.Show("To start the game, press ""Start Game"" in the top center of the screen", "Help #1")
+        MessageBox.Show("After cards are dealt if you want another card press ""Hit"" and press ""Stand"" when you're done.  Try not to go over 21!", "Help #2")
+        MessageBox.Show("The dealer will then get cards to play, if the dealer gets 21 it wins.  If the dealer goes over 21, you win.  If the dealer beats your score it wins.", "Help #3")
+        MessageBox.Show("Good luck!", "It's All You Now!")
     End Sub
 End Class

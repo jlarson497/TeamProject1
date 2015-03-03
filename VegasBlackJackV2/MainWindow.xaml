@@ -21,5 +21,6 @@
         <ListBox x:Name="lstDealerCards" HorizontalAlignment="Left" Height="100" Margin="323,101,0,0" VerticalAlignment="Top" Width="136"/>
         <Button x:Name="btnHit" Content="Hit" HorizontalAlignment="Left" Margin="177,247,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="btnStay" Content="Stay" HorizontalAlignment="Left" Margin="267,247,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnHelp" Content="Game Instructions" HorizontalAlignment="Left" Margin="403,286,0,0" VerticalAlignment="Top" Width="104" Height="23"/>
     </Grid>
 </Window>
