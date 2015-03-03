@@ -41,8 +41,11 @@
         'Display the player code information 
         lblPlayerTotal.Content = "Player Total Is: " & liveTable.playerHand.CountTotal()
         lblDealerTotal.Content = "Dealer Total Is: " & liveTable.dealerHand.CountTotal()
+
+        'Check player cards right away to see if they have 21.  If checkplayercards returns 1 then buttons are disabled.
         If liveTable.checkPlayerCards() = 1 Then
             btnHit.IsEnabled = False
+            btnStay.IsEnabled = False
 
         End If
 
@@ -53,6 +56,7 @@
         liveTable.dealCardToPlayer()
         lblPlayerTotal.Content = "Player Total Is: " & liveTable.playerHand.CountTotal()
         liveTable.playerHand.PopulateListBox(lstPlayerCards)
+        'check for gameover criteria
         If liveTable.checkPlayerCards() = 1 Then
             btnHit.IsEnabled = False
             btnStay.IsEnabled = False
@@ -66,17 +70,21 @@
     End Sub
 
     Public Sub dealerHit()
-        'This will deal another card to the player hand, update the count and repopulate the lstbox for the players cards
+        'This will deal another card to the player hand, update the count and repopulate the lstbox for the dealers cards
         liveTable.dealCardToDealer()
         lblDealerTotal.Content = "Dealer Total Is: " & liveTable.dealerHand.CountTotal()
         liveTable.dealerHand.PopulateListBox(lstDealerCards)
     End Sub
 
+    'This sub automates the dealer playing.  Most casinos have the dealer stay on 17 or over, so that's what we also did using constants.
+    'While less than cntDealerHold, the dealer hits.  Then it checks the dealsers cards.  Then it compares the dealers and players hands and
+    'Applies the game over criteria
     Public Sub dealerPlay()
         Do While liveTable.dealerHand.CountTotal() < cntDealerHold
             dealerHit()
         Loop
         liveTable.checkDealerCards()
+
         If liveTable.dealerHand.CountTotal() < cntWinValue Then
             compareHands()
             btnHit.IsEnabled = False
@@ -85,6 +93,7 @@
 
     End Sub
 
+    'This sub compares the dealer and player hands, and show's a message box appropriately
     Public Sub compareHands()
         If liveTable.dealerHand.CountTotal() >= liveTable.playerHand.CountTotal() Then
             MessageBox.Show("The dealer has won")
@@ -95,6 +104,8 @@
         End If
     End Sub
 
+
+    'The following are event handlers for the start, hit, and stay buttons.
     Private Sub btnStart_Click(sender As Object, e As RoutedEventArgs) Handles btnStart.Click
         startGame()
 
@@ -104,6 +115,7 @@
         playerHit()
     End Sub
 
+    'As soon as the player elects to stay, then it is the dealers turn to play.
     Private Sub btnStay_Click(sender As Object, e As RoutedEventArgs) Handles btnStay.Click
         dealerPlay()
     End Sub

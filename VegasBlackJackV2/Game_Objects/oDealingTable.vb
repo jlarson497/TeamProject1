@@ -33,6 +33,8 @@
         dealerHand.ResetAces()
     End Sub
 
+    'This function checks to see if the player has gotten 21 or gone over.  If either of those happen, the function returns 1 
+    'which tells the mainwindow to disable the hit and stay buttons so that the player has to start the game over.
     Public Function checkPlayerCards()
         If playerHand.CountTotal = cntWinValue Then
             MessageBox.Show("21! You win!")
@@ -47,6 +49,7 @@
 
     End Function
 
+    'This is the same as checkplayer cards except for the dealer.  Returning 1 will tell mainwindow to disable hit and stay buttons.
     Public Function checkDealerCards()
         If dealerHand.CountTotal = cntWinValue Then
             MessageBox.Show("The dealer has gotten 21.  You lose!")
