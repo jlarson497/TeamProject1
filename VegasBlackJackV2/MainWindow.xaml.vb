@@ -5,10 +5,8 @@
     Public Const cntDealerHold As Integer = 17
 
     Public Sub New()
-
         ' This call is required by the designer.
         InitializeComponent()
-
 
     End Sub
 
@@ -119,7 +117,7 @@
     Private Sub btnStay_Click(sender As Object, e As RoutedEventArgs) Handles btnStay.Click
         dealerPlay()
     End Sub
-
+    'Add a help button to guide the user on how to better play the game.  Yey BlackJack!
     Private Sub btnHelp_Click(sender As Object, e As RoutedEventArgs) Handles btnHelp.Click
         MessageBox.Show("To start the game, press ""Start Game"" in the top center of the screen", "Help #1")
         MessageBox.Show("After cards are dealt if you want another card press ""Hit"" and press ""Stand"" when you're done.  Try not to go over 21!", "Help #2")
